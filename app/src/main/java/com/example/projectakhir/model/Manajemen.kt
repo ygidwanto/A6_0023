@@ -12,4 +12,12 @@ data class Acara(
     val statusAcara: String // (Direncanakan, Berlangsung, Selesai)
 )
 
+@Serializable
+data class Lokasi(
+    val id: Int,  // Primary Key
+    val namaLokasi: String,
+    val alamatLokasi: String,
+    val kapasitas: Int
+)
+
 
