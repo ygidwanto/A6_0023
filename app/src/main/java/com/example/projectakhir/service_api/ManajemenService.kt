@@ -3,6 +3,7 @@ package com.example.projectakhir.service_api
 import com.example.projectakhir.model.Acara
 import com.example.projectakhir.model.Klien
 import com.example.projectakhir.model.Lokasi
+import com.example.projectakhir.model.Vendor
 
 interface AcaraService {
 
@@ -57,4 +58,20 @@ interface KlienService {
 
     @DELETE("deleteklien.php/{id}")
     suspend fun deleteKlien(@Path("id") id: Int): Response<Void>
+}
+interface VendorService {
+    @POST("insertvendor.php")
+    suspend fun insertVendor(@Body vendor: Vendor)
+
+    @GET("bacavendor.php")
+    suspend fun getAllVendor(): List<Vendor>
+
+    @GET("baca1vendor.php/{id}")
+    suspend fun getVendorById(@Path("id") id: Int): Vendor
+
+    @PUT("editvendor.php/{id}")
+    suspend fun updateVendor(@Path("id") id: Int, @Body vendor: Vendor)
+
+    @DELETE("deletevendor.php/{id}")
+    suspend fun deleteVendor(@Path("id") id: Int): Response<Void>
 }
