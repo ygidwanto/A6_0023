@@ -1,6 +1,7 @@
 package com.example.projectakhir.service_api
 
 import com.example.projectakhir.model.Acara
+import com.example.projectakhir.model.Klien
 import com.example.projectakhir.model.Lokasi
 
 interface AcaraService {
@@ -39,4 +40,21 @@ interface LokasiService {
 
     @DELETE("deletelokasi.php/{id}")
     suspend fun deleteLokasi(@Path("id") id: Int): Response<Void>
+}
+
+interface KlienService {
+    @POST("insertklien.php")
+    suspend fun insertKlien(@Body klien: Klien)
+
+    @GET("bacaklien.php")
+    suspend fun getAllKlien(): List<Klien>
+
+    @GET("baca1klien.php/{id}")
+    suspend fun getKlienById(@Path("id") id: Int): Klien
+
+    @PUT("editklien.php/{id}")
+    suspend fun updateKlien(@Path("id") id: Int, @Body klien: Klien)
+
+    @DELETE("deleteklien.php/{id}")
+    suspend fun deleteKlien(@Path("id") id: Int): Response<Void>
 }
