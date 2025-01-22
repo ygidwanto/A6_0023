@@ -20,4 +20,11 @@ data class Lokasi(
     val kapasitas: Int
 )
 
+@Serializable
+data class Klien(
+    val id: Int,
+    val namaKlien: String,
+    val kontakKlien: String
+)
+
 
