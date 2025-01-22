@@ -27,4 +27,14 @@ data class Klien(
     val kontakKlien: String
 )
 
+@Serializable
+data class Vendor(
+    val id: Int,
+    val namaVendor: String,
+
+    @SerialName("jenis_vendor")
+    val jenisVendor: String,
+
+    val kontakVendor: String
+)
 
