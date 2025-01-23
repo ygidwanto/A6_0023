@@ -2,6 +2,7 @@ package com.example.projectakhir.repository
 
 import com.example.projectakhir.model.Lokasi
 import com.example.projectakhir.service_api.LokasiService
+import java.io.IOException
 
 interface LokasiRepository {
     suspend fun insertLokasi(lokasi: Lokasi)
