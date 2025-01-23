@@ -1,6 +1,7 @@
 package com.example.projectakhir.repository
 
 import com.example.projectakhir.model.Acara
+import com.example.projectakhir.service_api.AcaraService
 import java.io.IOException
 
 interface AcaraRepository {

@@ -14,7 +14,7 @@ data class Acara(
 
 @Serializable
 data class Lokasi(
-    val id: Int,  // Primary Key
+    val id: Int,
     val namaLokasi: String,
     val alamatLokasi: String,
     val kapasitas: Int
