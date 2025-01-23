@@ -1,4 +1,4 @@
-package com.example.projectakhir.viewmodel
+package com.example.projectakhir.ui.viewmodel
 
 
 
