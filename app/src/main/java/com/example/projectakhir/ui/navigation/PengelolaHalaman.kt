@@ -1,6 +1,7 @@
 package com.example.projectakhir.ui.navigation
 
 
+
 // Interface untuk mendefinisikan destinasi navigasi
 interface DestinasiNavigasi {
     val route: String
@@ -47,4 +48,3 @@ object AddKlienDestinasi : DestinasiNavigasi {
     override val route: String = "add_klien"
     override val titleRes: String = "Tambah Klien"
 }
-
