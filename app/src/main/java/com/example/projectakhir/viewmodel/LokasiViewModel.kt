@@ -7,28 +7,28 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.projectakhir.model.Klien
-import com.example.projectakhir.repository.KlienRepository
+import com.example.projectakhir.model.Lokasi
+import com.example.projectakhir.repository.LokasiRepository
 import kotlinx.coroutines.launch
 
-class KlienViewModel(
-    private val klienRepository: KlienRepository
+class LokasiViewModel(
+    private val lokasiRepository: LokasiRepository
 ) : ViewModel() {
-    var klienListUiState by mutableStateOf(KlienListUiState())
+    var lokasiListUiState by mutableStateOf(LokasiListUiState())
         private set
 
     init {
-        loadKlienList()
+        loadLokasiList()
     }
 
-    private fun loadKlienList() {
+    private fun loadLokasiList() {
         viewModelScope.launch {
-            klienListUiState = KlienListUiState(isLoading = true)
+            lokasiListUiState = LokasiListUiState(isLoading = true)
             try {
-                val result = klienRepository.getAllKlien()
-                klienListUiState = KlienListUiState(klienList = result)
+                val result = lokasiRepository.getAllLokasi()
+                lokasiListUiState = LokasiListUiState(lokasiList = result)
             } catch (e: Exception) {
-                klienListUiState = KlienListUiState(
+                lokasiListUiState = LokasiListUiState(
                     isError = true,
                     errorMessage = e.message ?: "Unknown Error"
                 )
@@ -36,33 +36,33 @@ class KlienViewModel(
         }
     }
 
-    fun deleteKlien(id: Int) {
+    fun deleteLokasi(id: Int) {
         viewModelScope.launch {
             try {
-                klienRepository.deleteKlien(id)
-                loadKlienList()
+                lokasiRepository.deleteLokasi(id)
+                loadLokasiList()
             } catch (e: Exception) {
 
             }
         }
     }
 
-    fun createKlien(klien: Klien) {
+    fun createLokasi(lokasi: Lokasi) {
         viewModelScope.launch {
             try {
-                klienRepository.insertKlien(klien)
-                loadKlienList()
+                lokasiRepository.insertLokasi(lokasi)
+                loadLokasiList()
             } catch (e: Exception) {
 
             }
         }
     }
 
-    fun updateKlien(id: Int, klien: Klien) {
+    fun updateLokasi(id: Int, lokasi: Lokasi) {
         viewModelScope.launch {
             try {
-                klienRepository.updateKlien(id, klien)
-                loadKlienList() // Refresh the list after update
+                lokasiRepository.updateLokasi(id, lokasi)
+                loadLokasiList()
             } catch (e: Exception) {
 
             }
@@ -70,10 +70,9 @@ class KlienViewModel(
     }
 }
 
-data class KlienListUiState(
-    val klienList: List<Klien> = emptyList(),
+data class LokasiListUiState(
+    val lokasiList: List<Lokasi> = emptyList(),
     val isLoading: Boolean = false,
     val isError: Boolean = false,
     val errorMessage: String = ""
 )
-

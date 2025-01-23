@@ -49,7 +49,7 @@ class AcaraViewModel(
         viewModelScope.launch {
             try {
                 acaraRepository.insertAcara(acara)
-                loadAcaraList() //
+                loadAcaraList()
             } catch (e: Exception) {
             }
         }
@@ -61,7 +61,7 @@ class AcaraViewModel(
                 acaraRepository.updateAcara(id, acara)
                 loadAcaraList()
             } catch (e: Exception) {
-                // Handle error if necessary
+
             }
         }
     }
