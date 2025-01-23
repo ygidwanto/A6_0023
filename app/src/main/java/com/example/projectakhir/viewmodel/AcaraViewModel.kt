@@ -1,5 +1,7 @@
 package com.example.projectakhir.viewmodel
 
+
+
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -36,9 +38,30 @@ class AcaraViewModel(
         viewModelScope.launch {
             try {
                 acaraRepository.deleteAcara(id)
-                loadAcaraList() // Refresh list after deletion
+                loadAcaraList()
             } catch (e: Exception) {
-                // Handle error
+
+            }
+        }
+    }
+
+    fun createAcara(acara: Acara) {
+        viewModelScope.launch {
+            try {
+                acaraRepository.insertAcara(acara)
+                loadAcaraList() //
+            } catch (e: Exception) {
+            }
+        }
+    }
+
+    fun updateAcara(id: Int, acara: Acara) {
+        viewModelScope.launch {
+            try {
+                acaraRepository.updateAcara(id, acara)
+                loadAcaraList()
+            } catch (e: Exception) {
+                // Handle error if necessary
             }
         }
     }
