@@ -1,13 +1,13 @@
 package com.example.projectakhir.ui.navigation
 
 
-// Interface untuk mendefinisikan destinasi navigasi
+
 interface DestinasiNavigasi {
     val route: String
     val titleRes: String
 }
 
-// Implementasi untuk masing-masing destinasi navigasi
+
 object VendorDestinasi : DestinasiNavigasi {
     override val route: String = "vendor_list"
     override val titleRes: String = "Daftar Vendor"
