@@ -18,7 +18,7 @@ class InsertViewModel(private val klien: KlienRepository): ViewModel() {
         uiState = InsertUiState(insertUiEvent = insertUiEvent)
     }
 
-    suspend fun insertKlien() {
+     fun insertKlien() {
         viewModelScope.launch {
             try {
                 klien.insertKlien(uiState.insertUiEvent.toKlien())

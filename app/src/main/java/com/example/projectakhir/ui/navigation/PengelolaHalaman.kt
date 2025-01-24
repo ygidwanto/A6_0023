@@ -32,10 +32,7 @@ fun PengelolaHalaman(
             route = AddKlienDestinasi.route
         ) {
             KlienInsertView(
-                onDetailClick = { id->
-                    navController.navigate("${KlienDestinasi.route}/$id")
-                },
-                navigateToItemEntry = {navController.navigate(KlienDestinasi.route)},
+                navigateBack = { navController.popBackStack() }
             )
         }
     }
