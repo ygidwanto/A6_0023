@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.projectakhir.ui.customwidget.CustomeTopAppBar
+import com.example.projectakhir.ui.navigation.AddKlienDestinasi
 import com.example.projectakhir.ui.navigation.DestinasiNavigasi
 import com.example.projectakhir.ui.viewmodel.PenyediaViewModel
 import com.example.projectakhir.ui.viewmodel.klien.InsertUiEvent
@@ -29,7 +30,7 @@ import com.example.projectakhir.ui.viewmodel.klien.InsertViewModel
 
 import kotlinx.coroutines.launch
 
-object DestinasiEntryKlien : DestinasiNavigasi {
+object AddKlienDestinasi : DestinasiNavigasi {
     override val route = "klien_entry"
     override val titleRes = "Tambah Klien"
 }
@@ -48,7 +49,7 @@ fun KlienInsertView(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             CustomeTopAppBar(
-                title = DestinasiEntryKlien.titleRes,
+                title = AddKlienDestinasi.titleRes,
                 canNavigateBack = true,
                 scrollBehavior = scrollBehavior,
                 navigateUp = navigateBack

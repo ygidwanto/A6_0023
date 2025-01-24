@@ -24,7 +24,7 @@ fun PengelolaHalaman(
                 onDetailClick = { id->
                     navController.navigate("${KlienDestinasi.route}/$id")
                 },
-                navigateToItemEntry = {navController.navigate(KlienDestinasi.route)},
+                navigateToItemEntry = {navController.navigate(AddKlienDestinasi.route)},
             )
         }
 

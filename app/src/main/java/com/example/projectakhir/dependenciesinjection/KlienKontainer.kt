@@ -16,7 +16,7 @@ interface AppContainerKlien{
 @kotlinx.serialization.InternalSerializationApi
 class KlienKontainer : AppContainerKlien {
 
-    private val baseUrl = "http://10.0.2.2:3000/api/klien/"
+    private val baseUrl = "http://10.0.2.2:3000/PamAkhir/klien/"
     private val json = Json { ignoreUnknownKeys = true }
     private val retrofit: Retrofit = Retrofit.Builder()
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
