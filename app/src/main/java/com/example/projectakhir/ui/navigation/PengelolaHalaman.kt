@@ -1,50 +1,42 @@
-package com.example.projectakhir.ui.navigation
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.projectakhir.ui.navigation.AddKlienDestinasi
+import com.example.projectakhir.ui.navigation.KlienDestinasi
+import com.example.projectakhir.ui.view.klien.HomeScreen
+import com.example.projectakhir.ui.view.klien.KlienInsertView
 
+@kotlinx.serialization.InternalSerializationApi
+@Composable
+fun PengelolaHalaman(
+    navController: NavHostController = rememberNavController(),
+    modifier: Modifier = Modifier
+) {
+    NavHost(navController = navController, startDestination = KlienDestinasi.route, modifier = modifier
+    ) {
+        composable(
+            route = KlienDestinasi.route
+        ) {
+            HomeScreen(
+                onDetailClick = { id->
+                    navController.navigate("${KlienDestinasi.route}/$id")
+                },
+                navigateToItemEntry = {navController.navigate(KlienDestinasi.route)},
+            )
+        }
 
-
-// Interface untuk mendefinisikan destinasi navigasi
-interface DestinasiNavigasi {
-    val route: String
-    val titleRes: String
-}
-
-// Implementasi untuk masing-masing destinasi navigasi
-object VendorDestinasi : DestinasiNavigasi {
-    override val route: String = "vendor_list"
-    override val titleRes: String = "Daftar Vendor"
-}
-
-object AddVendorDestinasi : DestinasiNavigasi {
-    override val route: String = "add_vendor"
-    override val titleRes: String = "Tambah Vendor"
-}
-
-object LokasiDestinasi : DestinasiNavigasi {
-    override val route: String = "lokasi_list"
-    override val titleRes: String = "Daftar Lokasi"
-}
-
-object AddLokasiDestinasi : DestinasiNavigasi {
-    override val route: String = "add_lokasi"
-    override val titleRes: String = "Tambah Lokasi"
-}
-
-object AcaraDestinasi : DestinasiNavigasi {
-    override val route: String = "acara_list"
-    override val titleRes: String = "Daftar Acara"
-}
-
-object AddAcaraDestinasi : DestinasiNavigasi {
-    override val route: String = "add_acara"
-    override val titleRes: String = "Tambah Acara"
-}
-
-object KlienDestinasi : DestinasiNavigasi {
-    override val route: String = "klien_list"
-    override val titleRes: String = "Daftar Klien"
-}
-
-object AddKlienDestinasi : DestinasiNavigasi {
-    override val route: String = "add_klien"
-    override val titleRes: String = "Tambah Klien"
+        composable(
+            route = AddKlienDestinasi.route
+        ) {
+            KlienInsertView(
+                onDetailClick = { id->
+                    navController.navigate("${KlienDestinasi.route}/$id")
+                },
+                navigateToItemEntry = {navController.navigate(KlienDestinasi.route)},
+            )
+        }
+    }
 }
