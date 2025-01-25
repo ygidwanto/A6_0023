@@ -1,25 +1,24 @@
 package com.example.projectakhir.model
 
-
-
+import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@kotlinx.serialization.InternalSerializationApi
+@InternalSerializationApi
 @Serializable
 data class VendorResponse(
     val status: Boolean,
     val message: String,
     val data: List<Vendor>
 )
-@kotlinx.serialization.InternalSerializationApi
+@InternalSerializationApi
 @Serializable
 data class DetailVendorResponse(
     val status: Boolean,
     val message: String,
     val data: Vendor
 )
-@kotlinx.serialization.InternalSerializationApi
+@InternalSerializationApi
 @Serializable
 data class Vendor(
     @SerialName("id_vendor")

@@ -1,24 +1,25 @@
 package com.example.projectakhir.model
 
-
+import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@kotlinx.serialization.InternalSerializationApi
+@InternalSerializationApi
 @Serializable
 data class AllAcaraResponse(
     val status: Boolean,
     val message: String,
     val data: List<Acara>
 )
-@kotlinx.serialization.InternalSerializationApi
+
+@InternalSerializationApi
 @Serializable
 data class DetailAcaraResponse(
     val status: Boolean,
     val message: String,
     val data: Acara
 )
-@kotlinx.serialization.InternalSerializationApi
+@InternalSerializationApi
 @Serializable
 data class Acara(
     @SerialName("id_acara")

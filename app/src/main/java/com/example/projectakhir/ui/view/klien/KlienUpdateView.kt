@@ -1,3 +1,5 @@
+import com.example.projectakhir.ui.navigation.DestinasiNavigasi
+
 //package com.example.projectakhir.ui.view.klien
 //
 //import android.R.attr.id
@@ -17,12 +19,7 @@
 //import java.lang.reflect.Modifier
 //
 //
-//object DestinasiUpdate : DestinasiNavigasi {
-//    override val route = "update"
-//    override val titleRes = "Edit Klien"
-//    const val NIM = "id"
-//    val routeWithArgs = "$route/{$id}"
-//}
+
 //
 //@OptIn(ExperimentalMaterial3Api::class)
 //@Composable

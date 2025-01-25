@@ -5,9 +5,7 @@ import com.example.projectakhir.model.Klien
 import com.example.projectakhir.model.KlienResponse
 import com.example.projectakhir.service_api.KlienService
 import java.io.IOException
-
 @kotlinx.serialization.InternalSerializationApi
-
 interface KlienRepository {
     suspend fun insertKlien(klien: Klien)
 

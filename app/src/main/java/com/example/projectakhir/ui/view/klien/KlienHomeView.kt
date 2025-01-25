@@ -1,5 +1,6 @@
 package com.example.projectakhir.ui.view.klien
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -39,7 +40,7 @@ import com.example.projectakhir.ui.viewmodel.klien.HomeUiState
 import com.example.projectakhir.ui.viewmodel.klien.KlienHomeViewModel
 import kotlinx.serialization.InternalSerializationApi
 
-@InternalSerializationApi
+@kotlinx.serialization.InternalSerializationApi
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
@@ -76,7 +77,7 @@ fun HomeScreen(
     }
 }
 
-@InternalSerializationApi
+@kotlinx.serialization.InternalSerializationApi
 @Composable
 fun HomeStatus(
     homeUiState: HomeUiState,
@@ -160,8 +161,9 @@ fun KlienCard(
     modifier: Modifier = Modifier,
     onDetailClick: (Klien) -> Unit
 ) {
+    // Wrap the Card in a Modifier.clickable
     Card(
-        modifier = modifier,
+        modifier = modifier.clickable { onDetailClick(klien) },
         shape = MaterialTheme.shapes.medium,
         elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
     ) {

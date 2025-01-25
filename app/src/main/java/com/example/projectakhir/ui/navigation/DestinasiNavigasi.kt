@@ -48,3 +48,17 @@ object AddKlienDestinasi : DestinasiNavigasi {
     override val titleRes: String = "Tambah Klien"
 }
 
+object DetailKlienDestinasi : DestinasiNavigasi {
+    override val route: String = "detail_klien"
+    override val titleRes: String = "Detail Klien"
+    const val IDClien = "id_klien"
+    val routeWithArgs = "$route/{$IDClien}"
+}
+
+object DestinasiUpdate : DestinasiNavigasi {
+    override val route = "update"
+    override val titleRes = "Edit Klien"
+    const val idKlien = "id"
+    val routeWithArgs = "$route/{$idKlien}"
+}
+

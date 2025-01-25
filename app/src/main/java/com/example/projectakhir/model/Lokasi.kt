@@ -1,23 +1,24 @@
 package com.example.projectakhir.model
 
+import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@kotlinx.serialization.InternalSerializationApi
+@InternalSerializationApi
 @Serializable
 data class LokasiResponse(
     val status: Boolean,
     val message: String,
     val data: List<Lokasi>
 )
-@kotlinx.serialization.InternalSerializationApi
+@InternalSerializationApi
 @Serializable
 data class DetailLokasiResponse(
     val status: Boolean,
     val message: String,
     val data: Lokasi
 )
-@kotlinx.serialization.InternalSerializationApi
+@InternalSerializationApi
 @Serializable
 data class Lokasi(
     @SerialName("id_lokasi")

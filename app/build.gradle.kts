@@ -19,6 +19,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
@@ -53,10 +56,10 @@ android {
 dependencies {
 
     // Import the Compose BOM
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
+   implementation(libs.androidx.core.ktx)
+   implementation(libs.androidx.lifecycle.runtime.ktx)
+   implementation(libs.androidx.activity.compose)
+   implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
@@ -70,12 +73,12 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 // Retrofit
-    implementation(libs.retrofit2.kotlinx.serialization.converter)
-    implementation(libs.retrofit)
+   implementation(libs.retrofit2.kotlinx.serialization.converter)
+   implementation(libs.retrofit)
     implementation(libs.okhttp)
     implementation(libs.coil.compose)
-    implementation(libs.kotlinx.serialization.json)
+   implementation(libs.kotlinx.serialization.json)
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.navigation.compose)
+   implementation(libs.androidx.navigation.compose)
 }

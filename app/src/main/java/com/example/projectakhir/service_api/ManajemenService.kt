@@ -6,6 +6,7 @@ import com.example.projectakhir.model.Klien
 import com.example.projectakhir.model.KlienResponse
 import com.example.projectakhir.model.Lokasi
 import com.example.projectakhir.model.Vendor
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
@@ -37,7 +38,7 @@ interface KlienService {
     suspend fun updateKlien(@Path("id_klien")id: String, @Body klien: Klien)
 
     @DELETE("{id_klien}")
-    suspend fun deleteKlien(@Path("id_klien")id: String): retrofit2.Response<Void>
+    suspend fun deleteKlien(@Path("id_klien")id: String): Response<Void>
 }
 //interface LokasiService {
 //    @POST("insertlokasi.php")
