@@ -19,8 +19,8 @@ import com.example.projectakhir.ui.navigation.AcaraDestinasi.route
 import com.example.projectakhir.ui.navigation.DestinasiNavigasi
 import com.example.projectakhir.ui.navigation.KlienDestinasi
 import com.example.projectakhir.ui.viewmodel.PenyediaViewModel
-import com.example.projectakhir.ui.viewmodel.klien.DetailUiState
 import com.example.projectakhir.ui.viewmodel.klien.DetailViewModel
+import com.example.projectakhir.ui.viewmodel.klien.DetailViewModel.DetailUiState
 import com.example.projectakhir.ui.viewmodel.klien.toKlien
 
 

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.projectakhir.ManajemenAcaraApplications
 import com.example.projectakhir.repository.KlienRepository
+import com.example.projectakhir.ui.view.klien.DetailView
 import com.example.projectakhir.ui.viewmodel.klien.DetailViewModel
 import com.example.projectakhir.ui.viewmodel.klien.InsertViewModel
 import com.example.projectakhir.ui.viewmodel.klien.KlienHomeViewModel
@@ -17,7 +18,7 @@ object PenyediaViewModel {
     val Factory= viewModelFactory {
         initializer { KlienHomeViewModel(aplikasiManajemen().KlienKontainer.klienRepository) }
         initializer { InsertViewModel (aplikasiManajemen().KlienKontainer.klienRepository)}
-        initializer { DetailViewModel (createSavedStateHandle(),aplikasiManajemen().KlienKontainer.klienRepository)}
+        initializer { DetailViewModel(createSavedStateHandle(),aplikasiManajemen().KlienKontainer.klienRepository) }
     }
 }
 

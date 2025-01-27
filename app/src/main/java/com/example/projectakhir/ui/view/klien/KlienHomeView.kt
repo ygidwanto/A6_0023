@@ -34,7 +34,8 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.projectakhir.model.Klien
-import com.example.projectakhir.ui.navigation.KlienDestinasi
+
+import com.example.projectakhir.ui.view.klien.KlienCard
 import com.example.projectakhir.ui.viewmodel.PenyediaViewModel
 import com.example.projectakhir.ui.viewmodel.klien.HomeUiState
 import com.example.projectakhir.ui.viewmodel.klien.KlienHomeViewModel
@@ -54,7 +55,7 @@ fun HomeScreen(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopAppBar(
-                title = { Text(KlienDestinasi.titleRes) },
+                title = { Text(DetailKlienDestinasi.titleRes) },
                 scrollBehavior = scrollBehavior
             )
         },
@@ -161,7 +162,7 @@ fun KlienCard(
     modifier: Modifier = Modifier,
     onDetailClick: (Klien) -> Unit
 ) {
-    // Wrap the Card in a Modifier.clickable
+
     Card(
         modifier = modifier.clickable { onDetailClick(klien) },
         shape = MaterialTheme.shapes.medium,

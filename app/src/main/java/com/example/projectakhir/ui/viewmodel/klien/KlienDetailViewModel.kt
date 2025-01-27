@@ -11,6 +11,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.projectakhir.model.Klien
 import com.example.projectakhir.repository.KlienRepository
 import com.example.projectakhir.ui.view.klien.DetailKlienDestinasi
+
 import kotlinx.coroutines.launch
 
 @kotlinx.serialization.InternalSerializationApi
@@ -32,12 +33,12 @@ class DetailViewModel(
             detailUiState = DetailUiState(isLoading = true)
             try {
                 val result = klienRepository.getKlienById(klien).data
-                detailUiState = DetailUiState(
+                this@DetailViewModel.detailUiState = DetailUiState(
                     detailUiEvent = result.toDetailUiEvent(),
                     isLoading = false
                 )
             } catch (e: Exception) {
-                detailUiState = DetailUiState(
+                this@DetailViewModel.detailUiState = DetailUiState(
                     isLoading = false,
                     isError = true,
                     errorMessage = e.message ?: "Unknown"
@@ -48,12 +49,15 @@ class DetailViewModel(
 
     fun deleteKlien() {
         viewModelScope.launch {
-            detailUiState = DetailUiState(isLoading = true)
+            detailUiState = detailUiState.copy(isLoading = true)
             try {
                 klienRepository.deleteKlien(klien)
-                detailUiState = DetailUiState(isLoading = false)
-            } catch (e: Exception) {
                 detailUiState = DetailUiState(
+                    isLoading = false,
+                    detailUiEvent = InsertUiEvent()
+                ) // Kosongkan data setelah dihapus
+            } catch (e: Exception) {
+                detailUiState = detailUiState.copy(
                     isLoading = false,
                     isError = true,
                     errorMessage = e.message ?: "Unknown Error"
@@ -61,28 +65,28 @@ class DetailViewModel(
             }
         }
     }
-}
 
 
+    data class DetailUiState(
+        val detailUiEvent: InsertUiEvent = InsertUiEvent(),
+        val isLoading: Boolean = false,
+        val isError: Boolean = false,
+        val errorMessage: String = ""
+    ) {
+        val isUiEventEmpty: Boolean
+            get() = detailUiEvent == InsertUiEvent()
 
-data class DetailUiState(
-    val detailUiEvent: InsertUiEvent = InsertUiEvent(),
-    val isLoading: Boolean = false,
-    val isError: Boolean = false,
-    val errorMessage: String = ""
-){
-    val isUiEventEmpty: Boolean
-        get() = detailUiEvent == InsertUiEvent()
+        val isUiEventNotEmpty: Boolean
+            get() = detailUiEvent != InsertUiEvent()
+    }
 
-    val isUiEventNotEmpty: Boolean
-        get() = detailUiEvent != InsertUiEvent()
-}
-@kotlinx.serialization.InternalSerializationApi
+    @kotlinx.serialization.InternalSerializationApi
 
-fun Klien.toDetailUiEvent(): InsertUiEvent{
-    return InsertUiEvent(
-        id = id,
-        namaKlien = namaKlien,
-        kontakKlien = kontakKlien
-    )
+    fun Klien.toDetailUiEvent(): InsertUiEvent {
+        return InsertUiEvent(
+            id = id,
+            namaKlien = namaKlien,
+            kontakKlien = kontakKlien
+        )
+    }
 }
